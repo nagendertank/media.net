@@ -1,30 +1,34 @@
-const Hapi = require("hapi");
+"use strict";
 
+const Hapi = require("hapi");
+const Path = require("path");
 
 const server = Hapi.server({
   port: 3000,
-  host: "localhost"
+  host: "localhost",
+  routes: {
+    files: {
+      relativeTo: Path.join(__dirname, "build")
+    }
+  }
 });
 
-const io = require("socket.io")(server.listener);
+const start = async () => {
+  await server.register(require("inert"));
 
-const init = async () => {
+ server.route({
+   method: "GET",
+   path: "/{param*}",
+   handler: {
+     directory: {
+       path: Path.join(__dirname, "build")
+     }
+   }
+ });
+
   await server.start();
-  console.log(`Server running at: ${server.info.uri}`);
+
+  console.log("Server running at:", server.info.uri);
 };
 
-io.on("connect", function(socket) {
-  socket.broadcast.emit("Oh hii!");
-
-  socket.on("message", function(data) {
-      console.log(data);
-    socket.emit("message", data);
-  });
-});
-
-process.on("unhandledRejection", err => {
-  console.log(err);
-  process.exit(1);
-});
-
-init();
+start();
