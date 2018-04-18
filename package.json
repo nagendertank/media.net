@@ -1,0 +1,24 @@
+{
+  "name": "media_share",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "hapi": "^17.3.1",
+    "react": "^15.6.2",
+    "react-data-grid": "^3.0.11",
+    "react-dom": "^15.6.2",
+    "react-scripts": "1.1.4",
+    "react-sparklines": "^1.7.0",
+    "react-websocket": "^2.0.0",
+    "socket.io": "^2.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "semantic-ui-react": "^0.79.1"
+  }
+}
