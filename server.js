@@ -4,8 +4,7 @@ const Hapi = require("hapi");
 const Path = require("path");
 
 const server = Hapi.server({
-  port: 3000,
-  host: "localhost",
+  port: process.env.PORT || 3000,
   routes: {
     files: {
       relativeTo: Path.join(__dirname, "build")
