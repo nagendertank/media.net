@@ -5,6 +5,11 @@ To Install follow below steps:
  1. npm install - **To Install all the dependency**
  2. node server - **To Start Server**
 
+ #Demo
+ 1. Demo is running on below link
+    
+    http://test-media-net.fr.openode.io/
+
 # Files
 
  1. **Build Folder includes all compiled and minified file**
